@@ -1,0 +1,50 @@
+PROCEDURE calcul_ps(t1:ARRAY_OF INTEGER, t2:ARRAY_OF INTEGER , var ps:INTEGER:=0)
+VAR
+  i:INTEGER;
+BEGIN
+     FOR i FROM 1 TO t1.length-1 STEP 1  DO
+        ps:=ps +t1[i]*t2[i]
+   
+   END_FOR
+END
+ALGORITHM produit_scalaire_1
+VAR
+    t1,t2 : ARRAY_OF Integer [50];
+    n,ps:INTEGER;
+         
+         calcul_ps(t1,t2);
+         IF (ps==0) THEN
+              write(" les vecteurs sont ortogonaux")
+              ELSE 
+              write(" le produit scolaire est : ", ps)
+         END_IF
+
+
+BEGIN
+ FUNCTION calcul_produit_s(t1,t2:ARRAY_OF INTEGER) : FLOAT
+VAR
+  i,sum:INTEGER;
+
+BEGIN
+     FOR i FROM 1 TO t1.length-1 STEP 1  DO
+        sum:=sum +t1[i]*t2[i]
+   END_FOR
+   RETURN sum;
+ END   
+END
+ALGORITHM produit_scalaire_1
+VAR
+    t1,t2 : ARRAY_OF Integer [50];
+    n,ps,p:INTEGER;
+         
+        p:=calcul_produit_s(t1,t2);
+         IF (p==0) THEN
+              write(" les vecteurs sont ortogonaux")
+              ELSE 
+              write(" le produit scolaire est : ", p)
+         END_IF
+
+
+BEGIN
+    
+END
